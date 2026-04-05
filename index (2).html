@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countdown</title>
+<style>
+body{
+    font-family: Arial, sans-serif;
+    text-align:center;
+    margin-top:120px;
+    background:#0f172a;
+    color:white;
+}
+#countdown{
+    font-size:48px;
+    margin-top:20px;
+}
+#content{
+    display:none;
+    margin-top:30px;
+    font-size:22px;
+}
+.box{
+    background:#1e293b;
+    padding:40px;
+    border-radius:12px;
+    display:inline-block;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h1>Tunggu Sampai Waktunya</h1>
+<div id="countdown"></div>
+
+<div id="content">
+<h2>🎉 Pesan Terbuka!</h2>
+<p>Kalau kamu melihat ini berarti waktunya sudah tiba.</p>
+<p>Kamu bisa ganti bagian ini dengan pesan, foto, atau link.</p>
+</div>
+</div>
+
+<script>
+
+// GANTI TANGGAL DI SINI
+var targetDate = new Date("January 1, 2030 00:00:00").getTime();
+
+var timer = setInterval(function(){
+
+var now = new Date().getTime();
+var distance = targetDate - now;
+
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+document.getElementById("countdown").innerHTML =
+days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+if(distance < 0){
+
+clearInterval(timer);
+
+document.getElementById("countdown").innerHTML = "Sudah waktunya!";
+document.getElementById("content").style.display = "block";
+
+}
+
+},1000);
+
+</script>
+
+</body>
+</html>
