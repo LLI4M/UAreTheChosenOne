@@ -1,2 +1,2 @@
 # UAreTheChosenOne
-your Password : WLLNDHR000849
+Wait until the countdown ends.
